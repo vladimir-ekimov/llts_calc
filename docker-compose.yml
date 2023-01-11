@@ -1,0 +1,36 @@
+version: "3.9"
+
+services:
+  server:
+    build:
+      context: server
+    ports:
+      - "8080:8080"
+    environment:
+      - INFLUXDB_URL=http://influxdb:8086
+      - INFLUXDB_TOKEN=my-not-so-secret-auth-token
+      - INFLUXDB_ORG=YOUR-org1
+      - INFLUXDB_BUCKET=lucid_link_ts_data
+
+  client:
+    build:
+      context: client
+    ports:
+      - "80:80"
+
+  influxdb:
+    image: influxdb:latest
+    ports:
+      - '8086:8086'
+    volumes:
+      - influxdb-storage:/var/lib/influxdb
+    environment:
+      - DOCKER_INFLUXDB_INIT_MODE=setup
+      - DOCKER_INFLUXDB_INIT_USERNAME=user1
+      - DOCKER_INFLUXDB_INIT_PASSWORD=ZAQ!xsw2
+      - DOCKER_INFLUXDB_INIT_ORG=YOUR-org1
+      - DOCKER_INFLUXDB_INIT_BUCKET=init_bucket
+      - DOCKER_INFLUXDB_INIT_ADMIN_TOKEN=my-not-so-secret-auth-token
+
+volumes:
+  influxdb-storage:
