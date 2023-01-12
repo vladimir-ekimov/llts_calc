@@ -4,10 +4,7 @@
   "description": "Express back end server",
   "main": "index.js",
   "scripts": {
-    "dev": "npx nodemon",
-    "dev_2": "node -r dotenv/config dist/index.js",
-    "dev_3": "npx nodemon -r dotenv/config src/index.ts",
-    "test": "test"
+    "dev": "npx nodemon"
   },
   "author": "Vladimir Ekimov",
   "license": "ISC",
@@ -22,6 +19,7 @@
     "@types/node": "^18.11.17",
     "@typescript-eslint/eslint-plugin": "^5.48.1",
     "@typescript-eslint/parser": "^5.48.1",
+    "concurrently": "^7.6.0",
     "dotenv": "^16.0.3",
     "eslint": "^8.31.0",
     "ts-loader": "^9.4.2",

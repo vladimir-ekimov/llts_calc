@@ -9,8 +9,8 @@ First working version of the LucidLink Time Series assignment
     P0 Not ready at all
 
     P0 Configuration is incomplete
-        Passing configuration settings between dev/prod environments is not complete
-        Currently working on getting env vars passed through typescript compilation while being watched by nodemon
+
+    P0 CORS and FE env vars
 
     P0 Basic sanity checks of the code are incomplete
         Experimental code everywhere needs to be refactored
@@ -20,8 +20,6 @@ First working version of the LucidLink Time Series assignment
     P0 Types are defined in both client and server and are defined extremely messily
 
     P0 README is incomplete
-
-    P0 CORS
 
     P0 No tests
 

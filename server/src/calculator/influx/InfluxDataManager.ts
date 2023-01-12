@@ -7,14 +7,6 @@ let INFLUXDB_TOKEN = process.env.INFLUXDB_TOKEN
 let INFLUXDB_ORG = process.env.INFLUXDB_ORG
 let INFLUXDB_BUCKET = process.env.INFLUXDB_BUCKET
 
-
-if (process.env.NODE_ENV !== 'production') {
-    INFLUXDB_URL = 'http://localhost:8086'
-    INFLUXDB_TOKEN = 'my-not-so-secret-auth-token'
-    INFLUXDB_ORG = 'YOUR-org1'
-    INFLUXDB_BUCKET = 'lucid_link_ts_data'
-}
-
 export class InfluxDataManager {
     // Flux query that returns all turning points in the supplied period
     static async getTurningPoints(period: TimePeriod) : Promise<TurningPoint[]> {
