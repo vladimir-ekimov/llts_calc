@@ -8,9 +8,6 @@ First working version of the LucidLink Time Series assignment
 ### 2. Known Issues:
     P0 Not ready at all
 
-    P0 Docker Compose config is incomplete
-        Currently trying to figure out how to reuse the influxdb volume
-
     P0 Configuration is incomplete
         Passing configuration settings between dev/prod environments is not complete
         Currently working on getting env vars passed through typescript compilation while being watched by nodemon
@@ -31,6 +28,10 @@ First working version of the LucidLink Time Series assignment
     P1: OpenAPI / Swagger?
 
     P1 BUG: Periods with equal delta but shorter and later in time should be selected - add getTimeDelta() to MeasuredTimePeriod
+
+    P2: Automatic DB load.
+        Database init script can be automatically executed on docker compose up, provided the correct bundling is used.
+        https://github.com/docker-library/docs/blob/master/influxdb/README.md#custom-initialization-scripts
 ### 3. Description
     The project consists of:
     - React client app running on port 80
@@ -44,7 +45,7 @@ First working version of the LucidLink Time Series assignment
         `cd server`, `npm i`, `npm run dev`
 
     5.3 InfluxDB
-        `docker-compose up influxdb`
+        `docker-compose up ts_influxdb`
 
     5.3 Create Database Script
         `cd scripts`, `npm i`, `npm run create_db`
@@ -56,7 +57,6 @@ First working version of the LucidLink Time Series assignment
     Expected running time to generate the data is approx. 30 seconds.
 
     The influxDB client can be used to browse the generated data at http://localhost:8086/
-
 ### 9. Implementation Assumptions
     It is possible to run over the full period 120 days, however it takes quite a bit of time currently:
     - approx. 60 seconds to fetch all turning points from InfluxDB into memory. These would typically be around 400 000.

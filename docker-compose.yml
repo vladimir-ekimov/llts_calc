@@ -1,7 +1,7 @@
 version: "3.9"
 
 services:
-  server:
+  ts_server:
     build:
       context: server
     ports:
@@ -12,18 +12,18 @@ services:
       - INFLUXDB_ORG=YOUR-org1
       - INFLUXDB_BUCKET=lucid_link_ts_data
 
-  client:
+  ts_client:
     build:
       context: client
     ports:
       - "80:80"
 
-  influxdb:
-    image: influxdb:latest
+  ts_influxdb:
+    image: influxdb:2.6.1-alpine
     ports:
       - '8086:8086'
     volumes:
-      - influxdb-storage:/var/lib/influxdb
+      - influxdb-storage:/var/lib/influxdb2
     environment:
       - DOCKER_INFLUXDB_INIT_MODE=setup
       - DOCKER_INFLUXDB_INIT_USERNAME=user1
