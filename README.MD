@@ -8,9 +8,17 @@ First working version of the LucidLink Time Series assignment
 ### 2. Known Issues:
     P0 Not ready at all
 
-    P0 Configuration is incomplete
+    P0 Configuration is incomplete:
+        Client:
+            Uses .env in development
+            Uses client/Dockerfile defined variables otherwise
 
-    P0 CORS and FE env vars
+        Server env config:
+            Uses .env in development
+            Uses docker-compose.yml defined variables otherwise
+
+        Scripts:
+            Still hardcoded
 
     P0 Basic sanity checks of the code are incomplete
         Experimental code everywhere needs to be refactored

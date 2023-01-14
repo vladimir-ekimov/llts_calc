@@ -69,7 +69,7 @@ export const getResult = createAsyncThunk<Result, Params>(
         try {
             //FIXME: HARDCODED
             //FIXME: not rest
-            const response = await axios.post<MeasuredPoint, any>('http://localhost:8080/calc', {
+            const response = await axios.post<MeasuredPoint, any> (`${process.env.LLNKTS_SERVER_URL}/calc`, {
                 startDate, endDate
             })
             return { data: response.data, amount }

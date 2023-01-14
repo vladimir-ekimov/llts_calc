@@ -4,7 +4,7 @@
   "description": "React front end client",
   "main": "index.js",
   "scripts": {
-    "dev": "npx webpack serve --mode=development",
+    "dev": "npx webpack serve --mode=development --config webpack.config_dev.js",
     "test": "test"
   },
   "author": "Vladimir Ekimov",
@@ -32,6 +32,8 @@
     "axios": "^1.2.1",
     "babel-loader": "^9.1.0",
     "dayjs": "^1.11.7",
+    "dotenv": "^16.0.3",
+    "dotenv-webpack": "^8.0.1",
     "eslint": "^8.31.0",
     "eslint-plugin-react": "^7.31.11",
     "file-loader": "^6.2.0",

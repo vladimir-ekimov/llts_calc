@@ -11,6 +11,7 @@ import {default as rootReducer } from './store'
 const root = ReactDOM.createRoot(document.getElementById('root') as HTMLElement)
 const store = configureStore({ reducer: rootReducer })
 
+console.log(`LLNKTS_TEST_VAR: ${process.env.LLNKTS_TEST_VAR}`)
 
 // TODO read more 
 // export type AppDispatch = typeof store.dispatch;

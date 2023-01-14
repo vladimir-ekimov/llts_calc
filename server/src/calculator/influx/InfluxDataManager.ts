@@ -2,10 +2,10 @@ import { InfluxDB } from '@influxdata/influxdb-client'
 import { TimePeriod, TurningPoint, MeasuredPoint } from '../CalculatorTypes'
 
 // FIXME: Hardcoded - trying to get env vars passed through typescript while being watched by nodemon
-let INFLUXDB_URL = process.env.INFLUXDB_URL
-let INFLUXDB_TOKEN = process.env.INFLUXDB_TOKEN
-let INFLUXDB_ORG = process.env.INFLUXDB_ORG
-let INFLUXDB_BUCKET = process.env.INFLUXDB_BUCKET
+const INFLUXDB_URL = process.env.INFLUXDB_URL
+const INFLUXDB_TOKEN = process.env.INFLUXDB_TOKEN
+const INFLUXDB_ORG = process.env.INFLUXDB_ORG
+const INFLUXDB_BUCKET = process.env.INFLUXDB_BUCKET
 
 export class InfluxDataManager {
     // Flux query that returns all turning points in the supplied period
