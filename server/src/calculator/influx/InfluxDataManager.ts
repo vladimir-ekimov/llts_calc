@@ -1,7 +1,6 @@
 import { InfluxDB } from '@influxdata/influxdb-client'
 import { TimePeriod, TurningPoint, MeasuredPoint } from '../CalculatorTypes'
 
-// FIXME: Hardcoded - trying to get env vars passed through typescript while being watched by nodemon
 const INFLUXDB_URL = process.env.INFLUXDB_URL
 const INFLUXDB_TOKEN = process.env.INFLUXDB_TOKEN
 const INFLUXDB_ORG = process.env.INFLUXDB_ORG
@@ -15,8 +14,8 @@ export class InfluxDataManager {
         const endDate = new Date(period.end.timestamp)
         endDate.setMilliseconds(endDate.getMilliseconds()+1)
 
-        if (!INFLUXDB_URL || ! INFLUXDB_ORG) {
-            throw 'Missing INFLUXDB CONFIG ENV VARS' //FIXME
+        if (!INFLUXDB_URL || !INFLUXDB_TOKEN || !INFLUXDB_ORG || !INFLUXDB_BUCKET) {
+            throw new Error('Missing INFLUXDB CONFIG ENV VARS') //FIXME: Find a better way to write this
         }
 
         const fluxQuery = `from(bucket: "${INFLUXDB_BUCKET}")

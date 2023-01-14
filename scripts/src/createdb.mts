@@ -1,11 +1,14 @@
 import {InfluxDB, HttpError, Point} from '@influxdata/influxdb-client'
 import {OrgsAPI, BucketsAPI} from '@influxdata/influxdb-client-apis'
 
-//FIXME: P0 Hardcoded
-const INFLUXDB_URL = 'http://localhost:8086'
-const INFLUXDB_TOKEN = 'my-not-so-secret-auth-token'
-const INFLUXDB_ORG = 'YOUR-org1'
-const INFLUXDB_BUCKET = 'lucid_link_ts_data'
+const INFLUXDB_URL = process.env.INFLUXDB_URL
+const INFLUXDB_TOKEN = process.env.INFLUXDB_TOKEN
+const INFLUXDB_ORG = process.env.INFLUXDB_ORG
+const INFLUXDB_BUCKET = process.env.INFLUXDB_BUCKET
+
+if (!INFLUXDB_URL || !INFLUXDB_TOKEN || !INFLUXDB_ORG || !INFLUXDB_BUCKET) {
+    throw new Error('Missing INFLUXDB CONFIG ENV VARS') //FIXME: Find a better way to write this
+}
 
 const influxDB = new InfluxDB({url: INFLUXDB_URL, token: INFLUXDB_TOKEN})
 const orgsAPI = new OrgsAPI(influxDB)
@@ -30,7 +33,7 @@ console.log('*** LOAD DATA SCRIPT')
 const t1 = new Date()
 for (let i=0; i < num_of_days; i++) {
     console.log(`... Writing data for: ${start.toISOString().split('T')[0]}`)
-    await writePointsForUTCDate(influxDB, start)
+    await writePointsForUTCDate(influxDB, influxOrgID, INFLUXDB_BUCKET, start)
 }
 const t2 = new Date()
 console.log(`*** It took ${((t2.getTime() - t1.getTime()) / 1000)} seconds to fill the data`)
@@ -68,10 +71,10 @@ async function recreateBucket(orgId: string, name: string) {
     console.log(`*** Bucket "${bucket.name}" created ***`)
 }
 
-async function writePointsForUTCDate(influxDB: InfluxDB, start: Date) {
+async function writePointsForUTCDate(influxDB: InfluxDB, orgId: string, bucket:string, start: Date) {
     // Separate WriteApi for each day is on purpose - we have a lot of data to write
     // 's' parameter is seconds - the WriteApi granularity
-    const writeAPI = influxDB.getWriteApi(INFLUXDB_ORG, INFLUXDB_BUCKET, 's')
+    const writeAPI = influxDB.getWriteApi(orgId, bucket, 's')
     writeAPI.useDefaultTags({ticker: 'LLNK'})
 
     const end = new Date(start.getTime())
