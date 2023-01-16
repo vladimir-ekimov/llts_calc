@@ -1,47 +1,7 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit'
 import type { PayloadAction } from '@reduxjs/toolkit'
 import axios, { AxiosError } from 'axios'
-
-//////////////////////////////////////////////////////////////////////
-// ********* COPY / PASTE from server
-//
-// It would be really cool to figure out how to export these from the
-// back-end and import them in the front-end.
-//////////////////////////////////////////////////////////////////////
-// Just a point in time - not necessarily with measured value
-interface Point {
-    timestamp: Date;
-    value?: number;
-}
-// A point in time with a measured value guaranteed to be present
-interface MeasuredPoint extends Point {
-    timestamp: Date;
-    value: number;
-}
-// Just a time period representation using two points for start and end
-export interface TimePeriod {
-    start: Point;
-    end: Point;
-}
-// A time period with measured start and stop allowing for amplitude calculation
-export class MeasuredTimePeriod implements TimePeriod {
-    start: MeasuredPoint
-    end: MeasuredPoint
-
-    constructor(start: MeasuredPoint, end: MeasuredPoint) {
-        this.start = start
-        this.end = end
-    }
-
-    getAmplitude(): number {
-        if (this.start.value && this.end.value) {
-            return this.end.value - this.start.value
-        }
-        return 0        
-    }
-}
-// ********* 
-//////////////////////////////////////////////////////////////////////
+import { MeasuredPoint, MeasuredTimePeriod } from '../../common/src'
 
 export interface IRootState {
     data: MeasuredTimePeriod,

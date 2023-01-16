@@ -1,5 +1,3 @@
-//FIXME: A better file structure is necessary
-
 // Just a point in time - not necessarily with measured value
 export interface Point {
     timestamp: Date;

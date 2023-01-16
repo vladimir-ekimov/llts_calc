@@ -1,4 +1,4 @@
-import { MeasuredTimePeriod, TurningPoint } from './CalculatorTypes'
+import { MeasuredTimePeriod, TurningPoint } from '../../../common/src'
 import { InfluxDataManager } from './influx/InfluxDataManager'
 
 export class Calculator {

@@ -1,7 +1,7 @@
 {
-  "name": "lucidlink-tsdb-server",
+  "name": "llnkts-server",
   "version": "1.0.0",
-  "description": "Express back end server",
+  "description": "LLNKTS Express back end server",
   "main": "index.js",
   "scripts": {
     "dev": "npx nodemon"

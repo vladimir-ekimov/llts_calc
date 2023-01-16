@@ -2,8 +2,6 @@ import React from 'react'
 import ReactDOM from 'react-dom/client'
 import { configureStore } from '@reduxjs/toolkit'
 import { Provider } from 'react-redux'
-//import { useDispatch } from "react-redux/es/exports";
-
 
 import App from './App'
 import {default as rootReducer } from './store'

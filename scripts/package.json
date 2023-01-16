@@ -1,7 +1,7 @@
 {
   "name": "lucidlink-tsdb-scripts",
   "version": "1.0.0",
-  "description": "Database init scripts module",
+  "description": "LLNKTS Database init scripts module",
   "scripts": {
     "createdb": "ts-node -r dotenv/config --esm src/createdb.mts"
   },

@@ -1,7 +1,7 @@
 {
-  "name": "lucidlink-tsdb-client",
+  "name": "llnkts-client",
   "version": "1.0.0",
-  "description": "React front end client",
+  "description": "LLNKTS React front end client",
   "main": "index.js",
   "scripts": {
     "dev": "npx webpack serve --mode=development --config webpack.config_dev.js",
