@@ -1,4 +1,4 @@
-import { MeasuredTimePeriod, TurningPoint } from '../../../common/src'
+import { MeasuredTimePeriod, TurningPoint } from 'llnkts-common'
 import { InfluxDataManager } from './influx/InfluxDataManager'
 
 export class Calculator {

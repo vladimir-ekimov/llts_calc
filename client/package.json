@@ -10,6 +10,7 @@
   "author": "Vladimir Ekimov",
   "license": "ISC",
   "dependencies": {
+    "llnkts-common": "^1.0.2",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
   },

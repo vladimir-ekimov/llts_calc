@@ -1,7 +1,7 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit'
 import type { PayloadAction } from '@reduxjs/toolkit'
 import axios, { AxiosError } from 'axios'
-import { MeasuredPoint, MeasuredTimePeriod } from '../../common/src'
+import { MeasuredPoint, MeasuredTimePeriod } from 'llnkts-common'
 
 export interface IRootState {
     data: MeasuredTimePeriod,

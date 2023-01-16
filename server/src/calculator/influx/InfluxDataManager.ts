@@ -1,5 +1,5 @@
 import { InfluxDB } from '@influxdata/influxdb-client'
-import { TimePeriod, TurningPoint, MeasuredPoint } from '../../../../common/src'
+import { TimePeriod, TurningPoint, MeasuredPoint } from 'llnkts-common'
 
 const INFLUXDB_URL = process.env.INFLUXDB_URL
 const INFLUXDB_TOKEN = process.env.INFLUXDB_TOKEN

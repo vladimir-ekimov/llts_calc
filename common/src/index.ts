@@ -43,3 +43,7 @@ export class TurningPoint implements MeasuredPoint {
         this.isMin = isMin
     }
 }
+
+export default {
+    MeasuredTimePeriod, TurningPoint
+}

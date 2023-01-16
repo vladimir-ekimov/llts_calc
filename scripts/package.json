@@ -1,9 +1,9 @@
 {
-  "name": "lucidlink-tsdb-scripts",
+  "name": "llnkts-scripts",
   "version": "1.0.0",
   "description": "LLNKTS Database init scripts module",
   "scripts": {
-    "createdb": "ts-node -r dotenv/config --esm src/createdb.mts"
+    "createdb": "ts-node -r dotenv/config --esm src/index.mts"
   },
   "author": "Vladimir Ekimov",
   "license": "ISC",
