@@ -1,9 +1,10 @@
 {
   "name": "llnkts-server",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "LLNKTS Express back end server",
   "main": "index.js",
   "scripts": {
+    "clean": "rm -rf node_modules && rm -rf package-lock.json",
     "dev": "npx nodemon"
   },
   "author": "Vladimir Ekimov",
@@ -12,7 +13,7 @@
     "@influxdata/influxdb-client-apis": "^1.33.0",
     "cors": "^2.8.5",
     "express": "^4.18.2",
-    "llnkts-common": "^1.0.2"
+    "llnkts-common": "^1.0.4"
   },
   "devDependencies": {
     "@types/cors": "^2.8.13",

@@ -1,6 +1,6 @@
 {
   "name": "llnkts-common",
-  "version": "1.0.2",
+  "version": "1.0.4",
   "description": "LLNKTS Common Types",
   "author": "Vladimir Ekimov",
   "license": "ISC",
@@ -22,7 +22,7 @@
     "dist/**/*"
   ],
   "scripts": {
-    "clean": "rm -rf ./dist",
+    "clean": "rm -rf ./dist && rm -rf node_modules && rm -rf package-lock.json",
     "build": "npm run clean && npm run build:esm && npm run build:cjs",
     "build:esm": "tsc -p ./configs/tsconfig.esm.json && mv dist/esm/index.js dist/esm/index.mjs",
     "build:cjs": "tsc -p ./configs/tsconfig.cjs.json"

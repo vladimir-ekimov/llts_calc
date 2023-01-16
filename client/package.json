@@ -1,16 +1,17 @@
 {
   "name": "llnkts-client",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "LLNKTS React front end client",
   "main": "index.js",
   "scripts": {
+    "clean": "rm -rf node_modules && rm -rf package-lock.json",
     "dev": "npx webpack serve --mode=development --config webpack.config_dev.js",
     "test": "test"
   },
   "author": "Vladimir Ekimov",
   "license": "ISC",
   "dependencies": {
-    "llnkts-common": "^1.0.2",
+    "llnkts-common": "^1.0.4",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
   },
